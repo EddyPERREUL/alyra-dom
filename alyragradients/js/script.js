@@ -21,7 +21,7 @@ ou ... correspondent aux couleurs start et end d'un des objet de l'array gradien
 
 Le bouton #header-button permet de regénérer le header (=changer le dégradé)
 */
-
+/*
 const header = document.querySelector("#header");
 const randomIndexGradient = Math.floor(Math.random() * gradients.length);
 
@@ -33,3 +33,21 @@ console.log("start", startColor);
 console.log("end", endColor);
 const gradientCSS = `linear-gradient(${startColor}, ${endColor})`;
 header.style.backgroundImage = gradientCSS;
+*/
+
+function headerReload() {
+  const header = document.querySelector("#header");
+  const randomIndexGradient = Math.floor(Math.random() * gradients.length);
+  const randomGradient = gradients[randomIndexGradient];
+  const startColor = randomGradient.start;
+  const endColor = randomGradient.end;
+  const gradientCSS = `linear-gradient(90deg, ${startColor}, ${endColor})`;
+  header.style.backgroundImage = gradientCSS;
+}
+
+headerReload();
+
+const headerBtn = document.getElementById("header-button");
+if (headerBtn) {
+  headerBtn.addEventListener("click", headerReload);
+}
